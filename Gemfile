@@ -5,7 +5,9 @@ gem 'rails', '3.2.22.5'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+# gem 'sqlite3'
+
+gem 'mysql2', '~>0.3.11'
 gem 'test-unit','~>3.0'
 gem 'devise'
 
@@ -22,6 +24,12 @@ group :assets do
 end
 
 gem 'jquery-rails'
+
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
