@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+
+<% if current_user.login_type == "1"%>
+ Welcome to freshjoinee as guest at 
+ <%=current_user.company_name%>
+ <% else%>
+ Welcome to freshjoinee  as admin at
+ <%= current_user.company_name %>
+ <%end%>
+<li>
+	<%= link_to('Logout', destroy_user_session_path, :method=>'Delete') %>
+</li>
+
+<% #@current_user =User.find_by(session[:current_user_id]%>
+
+
+<% else %>
+<li>
+<%= link_to('Login', new_user_session_path, :method=>'get')  %>
+</li>
+
+<% end %>
+
+
+	
