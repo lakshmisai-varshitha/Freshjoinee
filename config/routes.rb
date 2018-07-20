@@ -4,9 +4,13 @@ Freshjoinee::Application.routes.draw do
 
   get 'projects/first' => 'projects#first'
 
-    devise_scope :user do
+  devise_scope :user do
       #root :to => 'devise/sessions#new'
-root :to =>'projects#first'
+  root :to =>'projects#first'
+  get 'users/personaldetails' => 'personal_details#view'
+  get 'users/educationaldetails' => 'educational_details#view'
+  get 'users/employmentdetails' => 'employment_details#view'
+  get 'users/financedetails' => 'finance_details#view'
 end
   #, 
   #:controllers =>{ :registrations =>'memberships'}

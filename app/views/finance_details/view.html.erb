@@ -1,0 +1,59 @@
+<h1>Insurance details</h1><br>
+<table >
+  <tr>
+    <th>S.no</th>
+    <th>Employee ID</th>
+    <th>Name</th>
+    <th>Relation Type</th>
+    <th>Beneficiary Name</th>
+    <th>Date of Birth</th>
+    <th>Gender</th>
+  </tr>
+  <% Insurance.all.each do |person|  %>
+    <% if(person.comp_id=='1') %>
+      <tr>
+        <td><%= person.id %></td>
+        <td><%= person.emp_id %></td>
+        <% temp=PersonalDetail.find_by_comp_id_and_emp_id( '1', person.emp_id) %>
+        <td><%= temp.name %></td>
+        <td><%= person.relation_type %></td>
+        <td><%= person.name %></td>
+        <td><%= person.dob %></td>
+        <td><%= person.gender %></td>
+      </tr>
+    <%end %>
+
+  <% end %>
+
+</table>
+<br><br>
+<h1>PF details</h1><br>
+<table >
+  <tr>
+    <th>S.no</th>
+    <th>Employee ID</th>
+    <th>Name</th>
+    <th>Aadhar number</th>
+    <th>PAN</th>
+    <th>Bank Name</th>
+    <th>Account number</th>
+    <th>IFSC</th>
+  </tr>
+  <% Pf.all.each do |person|  %>
+    <% if(person.comp_id=='1') %>
+      <tr>
+        <td><%= person.id %></td>
+        <td><%= person.emp_id %></td>
+        <% temp=PersonalDetail.find_by_comp_id_and_emp_id( '1', person.emp_id) %>
+        <td><%= temp.name %></td>
+        <td><%= person.aadhar %></td>
+        <td><%= person.pan %></td>
+        <td><%= person.bank_name %></td>
+        <td><%= person.acc_number %></td>
+        <td><%= person.ifsc %></td>
+      </tr>
+    <%end %>
+
+  <% end %>
+
+</table>

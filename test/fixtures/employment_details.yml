@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  comp_id: MyString
+  emp_id: MyString
+  comp_name: MyString
+  from_date: 2018-07-20
+  to_date: 2018-07-20
+  designation: MyString
+  experience: MyString
+
+two:
+  comp_id: MyString
+  emp_id: MyString
+  comp_name: MyString
+  from_date: 2018-07-20
+  to_date: 2018-07-20
+  designation: MyString
+  experience: MyString

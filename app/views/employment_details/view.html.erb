@@ -1,0 +1,33 @@
+<h1>Employment Details</h1><br>
+<table >
+  <tr>
+    <th>S.no</th>
+    <th>Employee ID</th>
+    <th>Name</th>
+    <th>Company name</th>
+    <th>Location</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Designation</th>
+    <th>Experience</th>
+  </tr>
+  <% EmploymentDetail.all.each do |person|  %>
+    <% if(person.comp_id=='1') %>
+      <tr>
+        <td><%= person.id %></td>
+        <td><%= person.emp_id %></td>
+        <% temp=PersonalDetail.find_by_comp_id_and_emp_id( '1', person.emp_id) %>
+        <td><%= temp.name %></td>
+        <td><%= person.comp_name %></td>
+        <td><%= person.location %></td>
+        <td><%= person.from_date %></td>
+        <td><%= person.to_date %></td>
+        <td><%= person.designation %></td>
+        <td><%= person.experience %></td>
+
+    <%end %>
+
+    </tr>
+  <% end %>
+
+</table>

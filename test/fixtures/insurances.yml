@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  comp_id: MyString
+  emp_id: MyString
+  relation_type: MyString
+  name: MyString
+  dob: 2018-07-20
+  gender: MyString
+
+two:
+  comp_id: MyString
+  emp_id: MyString
+  relation_type: MyString
+  name: MyString
+  dob: 2018-07-20
+  gender: MyString

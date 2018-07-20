@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  comp_id: MyString
+  emp_id: MyString
+  name: MyString
+  email: MyString
+  gender: MyString
+  dob: 2018-07-20
+  contact: MyString
+
+two:
+  comp_id: MyString
+  emp_id: MyString
+  name: MyString
+  email: MyString
+  gender: MyString
+  dob: 2018-07-20
+  contact: MyString

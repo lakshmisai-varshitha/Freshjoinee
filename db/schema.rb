@@ -11,7 +11,89 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180718182253) do
+ActiveRecord::Schema.define(:version => 20180720070650) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "comp_id"
+    t.string   "emp_id"
+    t.integer  "doorno"
+    t.string   "street"
+    t.string   "city"
+    t.string   "district"
+    t.string   "state"
+    t.string   "pincode"
+    t.string   "country"
+    t.string   "address_type"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "area"
+  end
+
+  create_table "ar_internal_metadata", :primary_key => "key", :force => true do |t|
+    t.string   "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "educational_details", :force => true do |t|
+    t.string   "comp_id"
+    t.string   "emp_id"
+    t.string   "education_type"
+    t.string   "institution"
+    t.string   "stream"
+    t.string   "percentage"
+    t.string   "location"
+    t.string   "year_completion"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "employment_details", :force => true do |t|
+    t.string   "comp_id"
+    t.string   "emp_id"
+    t.string   "comp_name"
+    t.date     "from_date"
+    t.date     "to_date"
+    t.string   "designation"
+    t.string   "experience"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "insurances", :force => true do |t|
+    t.string   "comp_id"
+    t.string   "emp_id"
+    t.string   "relation_type"
+    t.string   "name"
+    t.date     "dob"
+    t.string   "gender"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "personal_details", :force => true do |t|
+    t.string   "comp_id"
+    t.string   "emp_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "gender"
+    t.date     "dob"
+    t.string   "contact"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pfs", :force => true do |t|
+    t.string   "comp_id"
+    t.string   "emp_id"
+    t.string   "aadhar"
+    t.string   "pan"
+    t.string   "acc_number"
+    t.string   "ifsc"
+    t.string   "bank_name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
@@ -29,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20180718182253) do
     t.string   "company_name"
     t.integer  "emp_id"
     t.string   "login_type"
+    t.string   "authentication_token"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

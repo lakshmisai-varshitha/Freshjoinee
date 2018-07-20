@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  comp_id: MyString
+  emp_id: MyString
+  aadhar: MyString
+  pan: MyString
+  acc_number: MyString
+  ifsc: MyString
+  bank_name: MyString
+
+two:
+  comp_id: MyString
+  emp_id: MyString
+  aadhar: MyString
+  pan: MyString
+  acc_number: MyString
+  ifsc: MyString
+  bank_name: MyString
