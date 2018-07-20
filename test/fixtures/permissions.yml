@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  personal_details: 
+  finance_details: 
+  insurance_details: 
+  education_details: 
+  employment_details: false
+
+two:
+  personal_details: 
+  finance_details: 
+  insurance_details: 
+  education_details: 
+  employment_details: false

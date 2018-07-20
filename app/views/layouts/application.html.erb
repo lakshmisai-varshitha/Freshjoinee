@@ -18,6 +18,12 @@
   <%= link_to('Educational Details', users_educationaldetails_path, :method=>'get') %>
   <%= link_to('Employment Details', users_employmentdetails_path, :method=>'get') %>
   <%= link_to('Finance Details', users_financedetails_path, :method=>'get') %>
+<%=flash.each do |name,msg|%>
+  <ul>
+    <li><%=msg%></li>
+  </ul>
+<%end%>
+<% if user_signed_in? %>
   <% if current_user.login_type == "1"%>
     Welcome to freshjoinee as guest at
     <%=current_user.company_name%>
@@ -32,6 +38,28 @@
 
   <% #@current_user =User.find_by(session[:current_user_id]%>
 
+  <%if current_user.login_type =="admin" %>
+    <li>
+      <%= link_to('add users',projects_second_path,:method=>'get') %>
+    </li>
+  <%else %>
+    <li>
+      <%= link_to('give details',projects_third_path,:method=>'get') %>
+    </li>
+  <% end %>
+
+
+  <% #@current_user =User.find_by(session[:current_user_id]%>
+<% else %>
+
+  <li>
+    <%= link_to('Login', new_user_session_path, :method=>'get')  %>
+  </li>
+
+<% end %>
+
+
+<%= yield %>
 
 <% else %>
   <li>
