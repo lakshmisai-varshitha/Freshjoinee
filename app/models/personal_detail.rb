@@ -1,3 +1,3 @@
 class PersonalDetail < ActiveRecord::Base
-  attr_accessible :comp_id, :contact, :dob, :email, :emp_id, :gender, :name
+  attr_accessible :company_name, :contact, :dob, :email, :empid, :gender, :name
 end

@@ -14,12 +14,20 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 <% if user_signed_in? %>
-  <%= link_to('Personal Details', users_personaldetails_path, :method=>'get') %>
-  <%= link_to('Educational Details', users_educationaldetails_path, :method=>'get') %>
-  <%= link_to('Employment Details', users_employmentdetails_path, :method=>'get') %>
-  <%= link_to('Finance Details', users_financedetails_path, :method=>'get') %>
-
-
+  <% Permission.find_all_by_company_name_and_empid(current_user.company_name,current_user.empid).each do |perm| %>
+    <% if perm.personal_details %>
+      <%= link_to('Personal Details', users_personaldetails_path, :method=>'get') %>
+    <%end %>
+    <% if perm.education_details %>
+      <%= link_to('Educational Details', users_educationaldetails_path, :method=>'get') %>
+    <%end %>
+    <% if perm.employment_details %>
+      <%= link_to('Employment Details', users_employmentdetails_path, :method=>'get') %>
+    <%end %>
+    <% if perm.finance_details %>
+      <%= link_to('Finance Details', users_financedetails_path, :method=>'get') %>
+    <%end %>
+  <%end %>
   <% if current_user.login_type == "guest"%>
     Welcome to freshjoinee as guest at
     <%=current_user.company_name%>

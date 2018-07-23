@@ -5,29 +5,33 @@
     <th>Employee ID</th>
     <th>Name</th>
     <th>Company name</th>
-    <th>Location</th>
     <th>From</th>
     <th>To</th>
     <th>Designation</th>
     <th>Experience</th>
   </tr>
-  <% EmploymentDetail.all.each do |person|  %>
-    <% if(person.comp_id=='1') %>
+  <% User.find_all_by_company_name(current_user.company_name).each do |eachperson|  %>
+
       <tr>
-        <td><%= person.id %></td>
-        <td><%= person.emp_id %></td>
-        <% temp=PersonalDetail.find_by_comp_id_and_emp_id( '1', person.emp_id) %>
-        <td><%= temp.name %></td>
-        <td><%= person.comp_name %></td>
-        <td><%= person.location %></td>
+        <td><%= eachperson.id %></td>
+        <td><%= eachperson.empid %></td>
+        <td><%= eachperson.name %></td>
+        <% EmploymentDetail.find_all_by_empid(eachperson.empid).each do |person| %>
+        <td><%= person.company_name %></td>
         <td><%= person.from_date %></td>
         <td><%= person.to_date %></td>
         <td><%= person.designation %></td>
         <td><%= person.experience %></td>
+          </tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        <% end %>
+
 
     <%end %>
 
-    </tr>
-  <% end %>
+
+
 
 </table>

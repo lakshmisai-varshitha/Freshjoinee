@@ -1,3 +1,3 @@
 class Insurance < ActiveRecord::Base
-  attr_accessible :comp_id, :dob, :emp_id, :gender, :name, :relation_type
+  attr_accessible :company_name, :dob, :empid, :gender, :name, :relation_type
 end

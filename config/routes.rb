@@ -14,6 +14,7 @@ Freshjoinee::Application.routes.draw do
   get 'projects/second'=>'projects#second'
   get 'projects/third' =>'projects#third'
   get 'projects/forSaving' => 'projects#forSaving'
+    get 'projects/details' => 'projects#details'
 end
   #, 
   #:controllers =>{ :registrations =>'memberships'}

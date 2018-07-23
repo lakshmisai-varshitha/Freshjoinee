@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180720070822) do
+ActiveRecord::Schema.define(:version => 20180723063636) do
 
   create_table "addresses", :force => true do |t|
-    t.string   "comp_id"
-    t.string   "emp_id"
+    t.string   "company_name"
+    t.string   "empid"
     t.integer  "doorno"
     t.string   "street"
     t.string   "city"
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20180720070822) do
   end
 
   create_table "educational_details", :force => true do |t|
-    t.string   "comp_id"
-    t.string   "emp_id"
+    t.string   "company_name"
+    t.string   "empid"
     t.string   "education_type"
     t.string   "institution"
     t.string   "stream"
@@ -49,50 +49,26 @@ ActiveRecord::Schema.define(:version => 20180720070822) do
   end
 
   create_table "employment_details", :force => true do |t|
-    t.string   "comp_id"
-    t.string   "emp_id"
+    t.string   "company_name"
+    t.string   "empid"
     t.string   "comp_name"
     t.date     "from_date"
     t.date     "to_date"
     t.string   "designation"
     t.string   "experience"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "insurances", :force => true do |t|
-    t.string   "comp_id"
-    t.string   "emp_id"
+    t.string   "company_name"
+    t.string   "empid"
     t.string   "relation_type"
     t.string   "name"
     t.date     "dob"
     t.string   "gender"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-  end
-
-  create_table "personal_details", :force => true do |t|
-    t.string   "comp_id"
-    t.string   "emp_id"
-    t.string   "name"
-    t.string   "email"
-    t.string   "gender"
-    t.date     "dob"
-    t.string   "contact"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "pfs", :force => true do |t|
-    t.string   "comp_id"
-    t.string   "emp_id"
-    t.string   "aadhar"
-    t.string   "pan"
-    t.string   "acc_number"
-    t.string   "ifsc"
-    t.string   "bank_name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "permissions", :force => true do |t|
@@ -106,6 +82,30 @@ ActiveRecord::Schema.define(:version => 20180720070822) do
     t.string   "company_name"
     t.integer  "empid"
     t.string   "department"
+  end
+
+  create_table "personal_details", :force => true do |t|
+    t.string   "company_name"
+    t.string   "empid"
+    t.string   "name"
+    t.string   "email"
+    t.string   "gender"
+    t.date     "dob"
+    t.string   "contact"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "pfs", :force => true do |t|
+    t.string   "company_name"
+    t.string   "empid"
+    t.string   "aadhar"
+    t.string   "pan"
+    t.string   "acc_number"
+    t.string   "ifsc"
+    t.string   "bank_name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "users", :force => true do |t|

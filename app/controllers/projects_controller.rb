@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
 
-def forSaving
+def for_saving
   records = Permission.where("company_name = ?", current_user.company_name).all
   eid = records.count+1
   @permission=Permission.new(company_name:current_user.company_name,
@@ -23,6 +23,20 @@ end
     #@user=User.new(name:params[:name])
 
   end
+def details
+  @personal=PersonalDetail.new(name:params[:name],email:params[:email],gender:params[:gender],dob:params[:dob],contact:params[:contact],company_name:current_user.company_name,empid:current_user.empid)
+  @personal.save
+  @employment=EmploymentDetail.new(comp_name:params[:comp_name],designation:params[:designation],from_date:params[:from_date],to_date:params[:to_date],experience:params[:experience],company_name:current_user.company_name,empid:current_user.empid)
+  @employment.save
+  @education=EducationalDetail.new(education_type:params[:education_type],institution:params[:institution],stream:params[:stream],percentage:params[:percentage],location:params[:location],year_completion:params[:year_completion],company_name:current_user.company_name,empid:current_user.empid)
+  @education.save
+  @pf=Pf.new(aadhar:params[:aadhar],pan:params[:pan],ifsc:params[:ifsc],bank_name:params[:bank_name],acc_number:params[:acc_number],company_name:current_user.company_name,empid:current_user.empid)
+  @pf.save
+  @insurance=Insurance.new(relation_type:params[:relation_type],name:params[:name_of_relation],dob:params[:dob_of_relation],gender:params[:gender_of_relation],company_name:current_user.company_name,empid:current_user.empid)
+  @insurance.save
+  @address=Address.new(doorno:params[:doorno],street:params[:street],city:params[:city],country:params[:country],district:params[:district],state:params[:state],pincode:params[:pincode],address_type:params[:address_type],company_name:current_user.company_name,empid:current_user.empid)
+  @address.save
+end
 
   def first
 
