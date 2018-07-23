@@ -1,7 +1,6 @@
 
-
 <h1>hiiiii</h1>
-<h1>Fill the required details</h1>
+<h2>Fill the required details</h2>
 
 <%= form_tag("/projects/forSaving", method: "get") do %>
   <%= label_tag(:name, "name:") %>
@@ -10,27 +9,18 @@
   <%= text_field_tag(:email) %><br/>
   <%= label_tag(:password, "password:") %>
   <%= text_field_tag(:password) %><br/>
-
-
-
   <%= label_tag(:department, "department:") %>
   <%= text_field_tag(:department) %><br/>
-
-  <%=label_tag(:personal_details,"personal_details") %>
+  <%= label_tag(:personal_details,"personal_details") %>
   <%= check_box_tag (:personal_details) %><br/>
-  <%=label_tag(:finance_details,"finance_details") %>
-  <%= check_box_tag (:finance_details) %>
-
-
-
-
-
-
-
-
-
-
-
+  <%= label_tag(:finance_details,"finance_details") %>
+  <%= check_box_tag (:finance_details) %><br/>
+  <%= label_tag(:education_details,"education_details") %>
+  <%= check_box_tag (:education_details) %><br/>
+  <%= label_tag(:employment_details,"employment_details") %>
+  <%= check_box_tag (:employment_details) %><br/>
+  <%= label_tag(:insurance_details,"insurance_details") %>
+  <%= check_box_tag (:insurance_details) %><br/>
   <%= submit_tag("Submit") %>
 <% end %>
 
