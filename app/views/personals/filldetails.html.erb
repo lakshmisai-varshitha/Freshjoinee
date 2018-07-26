@@ -1,0 +1,40 @@
+<h1>personal</h1>
+
+
+<h2>personal details</h2>
+
+<%= form_tag("/personals/addressfill", method: "get") do %>
+  <%#byebug %>
+  <%#@pe=PersonalDetail.find_by_user_id(current_user.id) %>
+  <%#if @pe %>
+    <%= label_tag(:name, "name:") %>
+    <%= text_field_tag(:name) %><br/>
+
+  <%#else %>
+    <%#label_tag(:name, "name:") %>
+    <%#text_field_tag(:name,"varshitha") %><br/>
+    <%#end %>
+    <%= label_tag(:email, "email:") %>
+<%= text_field_tag(:email) %><br/>
+
+<%= label_tag(:contact, "contact:") %>
+<%= text_field_tag(:contact) %><br/>
+
+
+<%= label_tag(:dob, "dob:") %>
+<%= date_select(:dob,:dob) %><br/>
+
+
+<%= label_tag(:gender, "male:") %>
+<%= radio_button_tag(:gender,"male") %>
+<%= label_tag(:gender, "female:") %>
+<%= radio_button_tag(:gender,"female") %><br/>
+  >
+
+<%#@temp=params[:num_address].to_i%>
+  <%= submit_tag("Submit") %>
+<% end %>
+
+
+
+<%=link_to "back",projects_third_path %>

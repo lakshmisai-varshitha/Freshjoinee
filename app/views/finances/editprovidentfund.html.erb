@@ -1,0 +1,24 @@
+<h1>edit provident fund</h1>
+
+<%= form_tag(finances_updateprovidentfund_path(@pf.id), method: "get") do %>
+  <h2>pf details</h2>
+  <%Array(@pf).each do |pf| %>
+  <%= label_tag(:aadhar, "aadhar:") %>
+  <%= text_field_tag(:aadhar,pf.aadhar) %><br/>
+
+  <%= label_tag(:pan, "pan:") %>
+  <%= text_field_tag(:pan,pf.pan) %><br/>
+
+  <%= label_tag(:bank_name, "bank_name:") %>
+  <%= text_field_tag(:bank_name,pf.bank_name) %><br/>
+
+
+  <%= label_tag(:acc_number, "acc_number:") %>
+  <%= text_field_tag(:acc_number,pf.acc_number) %><br/>
+
+  <%= label_tag(:ifsc, "ifsc code:") %>
+  <%= text_field_tag(:ifsc,pf.ifsc) %><br/>
+  <%= submit_tag("Submit") %>
+<% end %>
+<%= submit_tag("Submit") %>
+<%end %>

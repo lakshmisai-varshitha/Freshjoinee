@@ -1,0 +1,18 @@
+<%= form_tag("/finances/forsaving", method: "get") do %>
+
+  <%=label_tag(:relation_type,"relation type") %>
+  <%= select_tag(:relation_type,options_for_select([['mother',1],['father',2],['spouse',3],['child',4]]))%><br/>
+
+  <%= label_tag(:name_of_relation, "name of relation:") %>
+  <%= text_field_tag(:name_of_relation) %><br/>
+
+  <%= label_tag(:dob_of_relation, "dob of relation:") %>
+  <%= date_select(:dob_of_relation,:dob) %><br/>
+
+  <%= label_tag(:gender_of_relation, "male:") %>
+  <%= radio_button_tag(:gender_of_relation,"male") %>
+  <%= label_tag(:gender_of_relation, "female:") %>
+  <%= radio_button_tag(:gender_of_relation,"female") %><br/>
+
+  <%= submit_tag("Submit") %>
+<% end %>

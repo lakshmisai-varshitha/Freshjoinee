@@ -1,125 +1,15 @@
 
 <h2>please fill the required details</h2>
 
-<%= form_tag("/projects/details", method: "get") do %>
-
-  <h2>personal details</h2>
-
-  <%= label_tag(:name, "name:") %>
-  <%= text_field_tag(:name) %><br/>
-
-  <%= label_tag(:email, "email:") %>
-  <%= text_field_tag(:email) %><br/>
-
-  <%= label_tag(:contact, "contact:") %>
-  <%= text_field_tag(:contact) %><br/>
 
 
-  <%= label_tag(:dob, "dob:") %>
-  <%= date_select(:dob,:dob) %><br/>
 
 
-  <%= label_tag(:gender, "male:") %>
-  <%= radio_button_tag(:gender,"male") %>
-  <%= label_tag(:gender, "female:") %>
-  <%= radio_button_tag(:gender,"female") %><br/>
-
-  <h2>address details</h2>
-  <%= label_tag(:doorno, "door_no") %>
-  <%= text_field_tag(:doorno) %><br/>
-
-  <%= label_tag(:street, "street") %>
-  <%= text_field_tag(:street) %><br/>
-
-  <%= label_tag(:city, "city:") %>
-  <%= text_field_tag(:city) %><br/>
-
-  <%= label_tag(:district, "district:") %>
-  <%= text_field_tag(:district) %><br/>
-
-  <%= label_tag(:state, "state:") %>
-  <%= text_field_tag(:state) %><br/>
-
-  <%= label_tag(:pincode, "pincode") %>
-  <%= text_field_tag(:pincode) %><br/>
-
-  <%= label_tag(:country, "country:") %>
-  <%= text_field_tag(:country) %><br/>
-
-  <%= label_tag(:address_type, "address_type:") %>
-  <%= text_field_tag(:address_type) %><br/>
-
-  <h2>education details</h2>
-
-  <%= label_tag(:education_type, "education_type:") %>
-  <%= text_field_tag(:education_type) %><br/>
-
-  <%= label_tag(:institution, "institution:") %>
-  <%= text_field_tag(:institution) %><br/>
-
-  <%= label_tag(:stream, "stream:") %>
-  <%= text_field_tag(:stream) %><br/>
-
-  <%= label_tag(:percentage, "percentage:") %>
-  <%= text_field_tag(:percentage) %><br/>
-
-  <%= label_tag(:location, "location:") %>
-  <%= text_field_tag(:location) %><br/>
-
-  <%= label_tag(:year_completion, "year_of_completion") %>
-  <%= text_field_tag(:year_completion) %><br/>
+<%=link_to "personal Details",personals_self_view_path %>
+  <%=link_to "Education Details",educationals_self_view_path %>
+  <%=link_to "Employment Details",employments_self_view_path%>
+  <%=link_to "Finance Details",finances_selfview_path %>
 
 
-  <h2>employment details</h2>
-
-  <%= label_tag(:comp_name, "comp_name:") %>
-  <%= text_field_tag(:comp_name) %><br/>
-
-  <%= label_tag(:from_date, "from_date:") %>
-  <%= date_select(:from_date,:from_date) %><br/>
-  <%= label_tag(:to_date, "to_date:") %>
-  <%= date_select(:to_date,:to_date) %><br/>
 
 
-  <%= label_tag(:designation, "designation:") %>
-  <%= text_field_tag(:designation) %><br/>
-
-  <%= label_tag(:experience, "experience:") %>
-  <%= text_field_tag(:experience) %><br/>
-
-  <h2>insurance details</h2>
-
-  <%= label_tag(:relation_type, "relation_type:") %>
-  <%= text_field_tag(:relation_type) %><br/>
-
-  <%= label_tag(:name_of_relation, "name_of_relation:") %>
-  <%= text_field_tag(:name_of_relation) %><br/>
-
-  <%= label_tag(:dob_of_relation, "dob_of_relation:") %>
-  <%= date_select(:dob_of_relation,:dob) %><br/>
-
-  <%= label_tag(:gender_of_relation, "male:") %>
-  <%= radio_button_tag(:gender_of_relation,"male") %>
-  <%= label_tag(:gender_of_relation, "female:") %>
-  <%= radio_button_tag(:gender_of_relation,"female") %><br/>
-
-
-  <h2>pf details</h2>
-  <%= label_tag(:aadhar, "aadhar:") %>
-  <%= text_field_tag(:aadhar) %><br/>
-
-  <%= label_tag(:pan, "pan:") %>
-  <%= text_field_tag(:pan) %><br/>
-
-  <%= label_tag(:bank_name, "bank_name:") %>
-  <%= text_field_tag(:bank_name) %><br/>
-
-
-  <%= label_tag(:acc_number, "acc_number:") %>
-  <%= text_field_tag(:acc_number) %><br/>
-
-  <%= label_tag(:ifsc, "ifsc code:") %>
-  <%= text_field_tag(:ifsc) %><br/>
-
-  <%= submit_tag("Submit") %>
-<% end %>

@@ -2,15 +2,16 @@
 <h1>hiiiii</h1>
 <h2>Fill the required details</h2>
 
-<%= form_tag("/projects/forSaving", method: "get") do %>
+<%= form_tag("/projects/forsaving", method: "get") do %>
   <%= label_tag(:name, "name:") %>
   <%= text_field_tag(:name) %><br/>
   <%= label_tag(:email, "email:") %>
   <%= text_field_tag(:email) %><br/>
   <%= label_tag(:password, "password:") %>
   <%= text_field_tag(:password) %><br/>
-  <%= label_tag(:department, "department:") %>
-  <%= text_field_tag(:department) %><br/>
+  <%=label_tag(:department,"department:") %>
+  <%= select_tag(:department,options_for_select([['hr',1],['developer',2],['admin',3],['sales',4],['marketing',5],['support',6],['manager',7]]))%>
+
   <%= label_tag(:personal_details,"personal_details") %>
   <%= check_box_tag (:personal_details) %><br/>
   <%= label_tag(:finance_details,"finance_details") %>

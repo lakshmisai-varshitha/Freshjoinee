@@ -7,14 +7,50 @@ Freshjoinee::Application.routes.draw do
   devise_scope :user do
       #root :to => 'devise/sessions#new'
   root :to =>'projects#first'
-  get 'users/personaldetails' => 'personal_details#view'
-  get 'users/educationaldetails' => 'educational_details#view'
-  get 'users/employmentdetails' => 'employment_details#view'
-  get 'users/financedetails' => 'finance_details#view'
+  get 'users/personaldetails' => 'personals#view'
+  get 'users/educationaldetails' => 'educationals#view'
+  get 'users/employmentdetails' => 'employments#view'
+  get 'users/financedetails' => 'finances#view'
+
+
   get 'projects/second'=>'projects#second'
   get 'projects/third' =>'projects#third'
-  get 'projects/forSaving' => 'projects#forSaving'
+  get 'projects/forsaving' => 'projects#for_saving'
     get 'projects/details' => 'projects#details'
+
+  get 'educationals/filldetails'=>'educationals#filldetails'
+    get 'educationals/self_view'=>'educationals#self_view'
+  get 'educationals/forsaving'=>'educationals#for_saving'
+  get 'educationals/editeducation/:id'=>'educationals#editeducation',as:'educationals_editeducation'
+  get 'educationals/updateeducation/:id'=>'educationals#updateeducation',as:'educationals_updateeducation'
+
+  get 'finances/filldetails'=>'finances#filldetails'
+  get 'finances/selfview'=>'finances#self_view'
+  get 'finances/forsaving'=>'finances#for_saving'
+  get 'finances/editinsurance/:id'=>'finances#editinsurance',as:'finances_editinsurance'
+  get 'finances/updateprovidentfund'=>'finances#updateprovidentfund'
+  get 'finances/updateinsurance/:id'=>'finances#updateinsurance',as:'finances_updateinsurance'
+  get 'finances/insurancefill'=>'finances#insurancefill',as:'finances_insurancefill'
+  get 'finances/editprovidentfund/:id'=>'finances#editprovidentfund',as:'edit_providentfund'
+  get 'finances/insurance'=>'finances#insurance',as:'insurance'
+
+  get 'personals/filldetails'=>'personals#filldetails'
+  get 'personals/self_view'=>'personals#self_view'
+get 'personals/forsaving'=>'personals#for_saving'
+    get 'personals/editpersonal/:id'=>'personals#editpersonal',as:'personals_editpersonal'
+   get 'personals/updatepersonal'=>'personals#updatepersonal'
+  get 'personals/updateaddress/:id'=>'personals#updateaddress',as:'personals_updateaddress'
+  get 'personals/addressfill'=>'personals#addressfill',as:'personals_addressfill'
+  get 'personals/editaddress/:id'=>'personals#editaddress',as:'edit_address'
+  get 'personals/address'=>'personals#address',as:'address'
+
+  get 'employments/self_view'=>'employments#self_view'
+get 'employments/forsaving'=>'employments#for_saving'
+    get 'employments/editemployment/:id'=>'employments#editemployment',as:'employments_editemployment'
+    get 'employments/updateemployment/:id'=>'employments#updateemployment',as:'employments_updateemployment'
+  get 'employments/filldetails'=>'employments#filldetails'
+    #get 'personals/address/:id'=>'personals#address', as:'personal_address_id'
+
 end
   #, 
   #:controllers =>{ :registrations =>'memberships'}

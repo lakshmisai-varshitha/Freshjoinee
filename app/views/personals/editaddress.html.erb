@@ -1,0 +1,32 @@
+<h2>address details</h2>
+
+<%= form_tag(personals_updateaddress_path(@addd.id), method: "get") do %>
+<%Array(@addd).each do |add| %>
+
+  <%= label_tag(:doorno, "door_no") %>
+  <%= number_field_tag(:doorno,value=add.doorno) %><br/>
+
+  <%= label_tag(:street, "street") %>
+  <%= text_field_tag(:street,add.street) %><br/>
+
+  <%= label_tag(:city, "city:") %>
+  <%= text_field_tag(:city,add.city) %><br/>
+
+  <%= label_tag(:district, "district:") %>
+  <%= text_field_tag(:district,add.district) %><br/>
+
+  <%= label_tag(:state, "state:") %>
+  <%= text_field_tag(:state,add.state) %><br/>
+
+  <%= label_tag(:pincode, "pincode") %>
+  <%= text_field_tag(:pincode,add.pincode) %><br/>
+
+  <%= label_tag(:country, "country:") %>
+  <%= text_field_tag(:country,add.country) %><br/>
+
+<%#byebug %>
+  <%=label_tag(:address_type,"address type") %>
+<%= select_tag(:address_type,options_for_select([['present',1],['permanent',2],['previous',3]]))%>
+<%end %>
+  <%= submit_tag("Submit") %>
+<% end %>

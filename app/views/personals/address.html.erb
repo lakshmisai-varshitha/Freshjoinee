@@ -1,0 +1,16 @@
+
+<%if @ad.nil? %>
+<%else %>
+  <%@ad.each do |addr| %>
+    id<%=link_to addr.id,edit_address_path(addr.id) %>
+    address-type<%=addr.address_type %><br/>
+    dno:<%=addr.doorno %><br/>
+    street:<%=addr.street %><br/>
+    city:<%=addr.city %><br/>
+    district:<%=addr.district %><br/>
+    state:<%=addr.state %><br/>
+    pincode:<%=addr.pincode %><br/>
+    country:<%=addr.country %><br/>
+
+  <% end %>
+<%end%>

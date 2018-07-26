@@ -1,0 +1,43 @@
+<h1>edit the details</h1>
+
+<%= form_tag("/personals/updatepersonal", method: "get") do %>
+  <%#byebug %>
+  <%#@pe=PersonalDetail.find_by_user_id(current_user.id) %>
+  <%#if @pe %>
+  <%= label_tag(:name, "name:") %>
+  <%= text_field_tag(:name,@pe.name) %><br/>
+
+  <%#else %>
+  <%#label_tag(:name, "name:") %>
+  <%#text_field_tag(:name,"varshitha") %><br/>
+  <%#end %>
+  <%= label_tag(:email, "email:") %>
+  <%= text_field_tag(:email,@pe.email) %><br/>
+
+  <%= label_tag(:contact, "contact:") %>
+  <%= text_field_tag(:contact,@pe.contact) %><br/>
+
+
+  <%= label_tag(:dob, "dob:") %>
+  <%= date_select(:dob,:dob) %><br/>
+
+<%if @pe.gender=="male" %>
+  <%= label_tag(:gender, "male:") %>
+  <%= radio_button_tag(:gender,"male",checked:true) %>
+  <%= label_tag(:gender, "female:") %>
+  <%= radio_button_tag(:gender,"female") %><br/>
+    <%else %>
+    <%= label_tag(:gender, "male:") %>
+    <%= radio_button_tag(:gender,"male") %>
+    <%= label_tag(:gender, "female:") %>
+    <%= radio_button_tag(:gender,"female",checked:true) %><br/>
+<%end %>
+
+
+  <%= submit_tag("Submit") %>
+<% end %>
+
+
+
+
+<%=link_to "back",projects_third_path %>

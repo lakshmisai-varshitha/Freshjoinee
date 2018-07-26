@@ -48,3 +48,4 @@ bower.json
 # Ignore node_modules
 node_modules/
 
+/app/controllers/finance_details_controller.rb

@@ -1,0 +1,38 @@
+<h1>my insurance data</h1>
+
+<%= link_to "add pf",finances_filldetails_path %>
+<%= link_to "add insurance ", finances_insurancefill_path %>
+<%if @pf.nil? %>
+
+<%else %>
+
+  <% Array(@pf).each do |pf|%>
+    id:<%=link_to pf.id,edit_providentfund_path(pf.id)%>
+    aadhar:<%=pf.aadhar %><br/>
+    ifsc:<%=pf.ifsc %><br/>
+    bank name:<%=pf.bank_name %><br/>
+    pan:<%=pf.pan %><br/>
+    account number<%=pf.acc_number %><br/>
+    <%end %>
+<%end %>
+<%= link_to "show insurance",insurance_path %>
+
+
+
+
+
+<%#Insurance.find_all_by_company_name_and_empid(current_user.company_name,current_user.empid).%>
+
+
+
+<%#@p=PersonalDetail.find_by_company_name_and_empid(current_user.company_name,current_user.empid) %>
+
+
+
+
+
+
+
+
+<%#link_to "next",personals_address_id_path(@) %>
+<%#Address.find_all_by_company_name_and_empid(current_user.company_name,current_user.empid).each do |addr|%>

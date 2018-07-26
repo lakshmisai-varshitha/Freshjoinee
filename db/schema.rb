@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180723063636) do
+ActiveRecord::Schema.define(:version => 20180724200847) do
 
   create_table "addresses", :force => true do |t|
     t.string   "company_name"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(:version => 20180723063636) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.string   "area"
+    t.integer  "user_id"
   end
 
   create_table "ar_internal_metadata", :primary_key => "key", :force => true do |t|
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20180723063636) do
     t.string   "year_completion"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
+    t.integer  "user_id"
   end
 
   create_table "employment_details", :force => true do |t|
@@ -58,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20180723063636) do
     t.string   "experience"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
   end
 
   create_table "insurances", :force => true do |t|
@@ -69,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20180723063636) do
     t.string   "gender"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.integer  "user_id"
   end
 
   create_table "permissions", :force => true do |t|
@@ -82,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20180723063636) do
     t.string   "company_name"
     t.integer  "empid"
     t.string   "department"
+    t.integer  "user_id"
   end
 
   create_table "personal_details", :force => true do |t|
@@ -94,6 +99,7 @@ ActiveRecord::Schema.define(:version => 20180723063636) do
     t.string   "contact"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
   end
 
   create_table "pfs", :force => true do |t|
@@ -106,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20180723063636) do
     t.string   "bank_name"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.integer  "user_id"
   end
 
   create_table "users", :force => true do |t|
@@ -125,6 +132,12 @@ ActiveRecord::Schema.define(:version => 20180723063636) do
     t.string   "login_type",             :default => "admin"
     t.string   "name"
     t.integer  "empid"
+    t.boolean  "personal_details",       :default => true
+    t.boolean  "finance_details",        :default => true
+    t.boolean  "insurance_details",      :default => true
+    t.boolean  "education_details",      :default => true
+    t.boolean  "employment_details",     :default => true
+    t.string   "department",             :default => "admin"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

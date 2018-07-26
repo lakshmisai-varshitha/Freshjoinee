@@ -1,0 +1,31 @@
+<h1>education</h1>
+
+<h2>education details</h2>
+
+<%= form_tag("/educationals/forsaving", method: "get") do %><br/>
+
+
+  <%=label_tag(:education_type,"education_type:") %>
+  <%= select_tag(:education_type,options_for_select([['10th',1],['12th',2],['b.tech',3],['b.com',4],['m.tech',5],['ms',6],['Phd',7]]))%>
+
+<%= label_tag(:institution, "institution:") %>
+<%= text_field_tag(:institution) %><br/>
+
+
+  <%=label_tag(:stream,"stream:") %>
+  <%= select_tag(:stream,options_for_select([['state board',1],['central-board',2],['cse',3],['it',4],['ict',5],['other',6]]))%><br/>
+
+<%= label_tag(:percentage, "percentage:") %>
+<%= text_field_tag(:percentage) %><br/>
+
+<%= label_tag(:location, "location:") %>
+<%= text_field_tag(:location) %><br/>
+
+<%= label_tag(:year_completion, "year_of_completion") %>
+<%= text_field_tag(:year_completion) %><br/>
+  <%= submit_tag("Submit") %>
+<% end %>
+
+
+
+<%=link_to "back",projects_third_path %>

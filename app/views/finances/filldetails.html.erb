@@ -1,0 +1,34 @@
+<h1>insurance and pf</h1>
+
+
+<%= form_tag("/finances/insurancefill", method: "get") do %>
+  <h2>pf details</h2>
+
+  <%= label_tag(:aadhar, "aadhar:") %>
+  <%= text_field_tag(:aadhar) %><br/>
+
+  <%= label_tag(:pan, "pan:") %>
+  <%= text_field_tag(:pan) %><br/>
+
+  <%= label_tag(:bank_name, "bank_name:") %>
+  <%= text_field_tag(:bank_name) %><br/>
+
+
+  <%= label_tag(:acc_number, "acc_number:") %>
+  <%= text_field_tag(:acc_number) %><br/>
+
+  <%= label_tag(:ifsc, "ifsc code:") %>
+  <%= text_field_tag(:ifsc) %><br/>
+  <%= submit_tag("Submit") %>
+<% end %>
+
+
+
+<%=link_to "back",projects_third_path %>
+
+
+
+
+
+
+

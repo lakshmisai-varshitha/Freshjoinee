@@ -1,0 +1,39 @@
+<h1>edit details</h1>
+
+
+<%= form_tag(finances_updateinsurance_path(@in.id), method: "get") do %>
+<%Array(@in).each do |inn| %>
+  <%=label_tag(:relation_type,"relation type") %>
+  <%= select_tag(:relation_type,options_for_select([['mother',1],['father',2],['spouse',3],['child',4]]))%><br/>
+
+  <%= label_tag(:name_of_relation, "name of relation:") %>
+  <%= text_field_tag(:name_of_relation,inn.name) %><br/>
+
+  <%= label_tag(:dob_of_relation, "dob of relation:") %>
+  <%= date_select(:dob_of_relation,:dob) %><br/>
+
+
+  <%if inn.gender=="male" %>
+    <%= label_tag(:gender, "male:") %>
+    <%= radio_button_tag(:gender,"male",checked:true) %>
+    <%= label_tag(:gender, "female:") %>
+    <%= radio_button_tag(:gender,"female") %><br/>
+  <%else %>
+    <%= label_tag(:gender, "male:") %>
+    <%= radio_button_tag(:gender,"male") %>
+    <%= label_tag(:gender, "female:") %>
+    <%= radio_button_tag(:gender,"female",checked:true) %><br/>
+  <%end %>
+<%end %>
+
+  <%= submit_tag("Submit") %>
+<% end %>
+
+<%=link_to "back",projects_third_path %>
+
+
+
+
+
+
+

@@ -1,0 +1,21 @@
+<h1>my education data</h1>
+
+<%if (@education).nil?%>
+
+<%else %>
+<% @education.each do |edu| %>
+    id<%=link_to edu.id,educationals_editeducation_path(edu.id) %>
+  education_type:<%=edu.education_type%><br/>
+  institution:<%=edu.institution %><br/>
+  stream:<%=edu.stream %><br/>
+  percentage:<%=edu.percentage %><br/>
+  year of completion:<%=edu.year_completion %><br/>
+<%end %>
+  <%end %>
+
+<%= link_to "enter",educationals_filldetails_path %>
+
+
+
+
+

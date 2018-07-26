@@ -1,0 +1,26 @@
+<h1>employment</h1>
+
+<h2>employment details</h2>
+
+<%= form_tag("/employments/forsaving", method: "get") do %>
+
+<%= label_tag(:comp_name, "comp_name:") %>
+<%= text_field_tag(:comp_name) %><br/>
+
+<%= label_tag(:from_date, "from_date:") %>
+<%= date_select(:from_date,:from_date) %><br/>
+<%= label_tag(:to_date, "to_date:") %>
+<%= date_select(:to_date,:to_date) %><br/>
+
+
+
+  <%=label_tag(:department,"department:") %>
+  <%= select_tag(:department,options_for_select([['hr',1],['developer',2],['admin',3],['sales',4],['marketing',5],['support',6],['manager',7]]))%><br/>
+
+<%= label_tag(:experience, "experience:") %>
+<%= text_field_tag(:experience) %><br/>
+
+  <%= submit_tag("Submit") %>
+<% end %>
+
+<%=link_to "back",projects_third_path %>
