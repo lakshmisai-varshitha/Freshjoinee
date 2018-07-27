@@ -16,16 +16,21 @@
         <td><%= eachperson.id %></td>
         <td><%= eachperson.empid %></td>
         <td><%= eachperson.name %></td>
-        <% EmploymentDetail.find_all_by_empid(eachperson.empid).each do |person| %>
+        <% empset=EmploymentDetail.find_all_by_empid(eachperson.empid) %>
+        <% count=empset.size %><% i=0 %>
+        <% empset.each do |person| %>
         <td><%= person.company_name %></td>
         <td><%= person.from_date %></td>
         <td><%= person.to_date %></td>
         <td><%= person.designation %></td>
         <td><%= person.experience %></td>
-          </tr>
-          <td></td>
-          <td></td>
-          <td></td>
+
+          <% i=i+1 %>
+          <% if i!=count %>
+            </tr>
+            <td></td><td></td><td></td>
+
+          <% end %>
         <% end %>
 
 

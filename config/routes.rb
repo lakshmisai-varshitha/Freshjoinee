@@ -31,6 +31,7 @@ Freshjoinee::Application.routes.draw do
   get 'finances/updateprovidentfund'=>'finances#updateprovidentfund'
   get 'finances/updateinsurance/:id'=>'finances#updateinsurance',as:'finances_updateinsurance'
   get 'finances/insurancefill'=>'finances#insurancefill',as:'finances_insurancefill'
+  get 'finances/insuranceupdate'=>'finances#insuranceupdate',as:'finances_insuranceupdate'
   get 'finances/editprovidentfund/:id'=>'finances#editprovidentfund',as:'edit_providentfund'
   get 'finances/insurance'=>'finances#insurance',as:'insurance'
 
@@ -41,6 +42,7 @@ get 'personals/forsaving'=>'personals#for_saving'
    get 'personals/updatepersonal'=>'personals#updatepersonal'
   get 'personals/updateaddress/:id'=>'personals#updateaddress',as:'personals_updateaddress'
   get 'personals/addressfill'=>'personals#addressfill',as:'personals_addressfill'
+  get 'personals/addressupdate'=>'personals#addressupdate',as:'personals_addressupdate'
   get 'personals/editaddress/:id'=>'personals#editaddress',as:'edit_address'
   get 'personals/address'=>'personals#address',as:'address'
 

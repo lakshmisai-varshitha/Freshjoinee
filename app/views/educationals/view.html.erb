@@ -1,40 +1,48 @@
-<h1>Educational Details</h1><br>
-<table >
-  <tr>
-    <th>S.no</th>
-    <th>Employee ID</th>
-    <th>Name</th>
-    <th>Education level</th>
-    <th>Stream</th>
-    <th>Percentage</th>
-    <th>Year of completion</th>
-    <th>Institution</th>
-    <th>Location</th>
-  </tr>
-  <% User.find_all_by_company_name(current_user.company_name).each do |eachperson|  %>
-      <tr>
-        <td><%= eachperson.id %></td>
-        <td><%= eachperson.empid %></td>
-        <td><%= eachperson.name %></td>
 
-        <% EducationalDetail.find_all_by_empid(eachperson.empid).each do |person| %>
-        <td><%= person.education_type %></td>
-        <td><%= person.stream %></td>
-        <td><%= person.percentage %></td>
-        <td><%= person.year_completion %></td>
-        <td><%= person.institution %></td>
-        <td><%= person.location %></td>
-
+<div class="limiter">
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100">
+        <table>
+          <thead>
+          <tr class="table100-head">
+                  <th class="column1">S.no</th>
+                       <th class="column2">Employee ID</th>
+                       <th class="column3">Name</th>
+            <th class="column4">Education level</th>
+            <th class="column5">Stream</th>
+            <th class="column6">Percentage</th>
+            <th class="column7">Year of completion</th>
+            <th class="column8">Institution</th>
+            <th class="column9">Location</th>
           </tr>
-          <td></td>
-            <td></td>
-            <td></td>
+          </thead>
+          <tbody>
+          <% User.find_all_by_company_name(current_user.company_name).each do |eachperson|  %>
+            <tr>
+                         <td class="column1"><%= eachperson.id %></td>
+                         <td class="column2"><%= eachperson.empid %></td>
+                         <td class="column3"><%= eachperson.name %></td>
+              <% eduset=EducationalDetail.find_all_by_empid(eachperson.empid) %>
+              <% count=eduset.size %><%i=0 %>
+              <% eduset.each do |person| %>
+                <td class="column4"><%= person.education_type %></td>
+                <td class="column5"><%= person.stream %></td>
+                <td class="column6"><%= person.percentage %></td>
+                <td class="column7"><%= person.year_completion %></td>
+                <td class="column8"><%= person.institution %></td>
+                <td class="column9"><%= person.location %></td>
+                <%i=i+1 %>
+                <% if i!=count %>
+                  <tr><td></td><td></td><td></td>
+                <%end %>
+              <%end %>
 
 
-
-    <%end %>
-
-
-  <% end %>
-
-</table>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

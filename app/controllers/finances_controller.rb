@@ -19,9 +19,13 @@ class FinancesController < ApplicationController
 
   def insurancefill
 
+
+
+  end
+  def insuranceupdate
     @pf=Pf.new(aadhar:params[:aadhar],pan:params[:pan],ifsc:params[:ifsc],bank_name:params[:bank_name],acc_number:params[:acc_number],company_name:current_user.company_name,empid:current_user.empid,user_id:current_user.id)
     @pf.save
-
+    redirect_to('/finances/insurancefill')
   end
     def editinsurance
       @in=Insurance.find(params[:id])

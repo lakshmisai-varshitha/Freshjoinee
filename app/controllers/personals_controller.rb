@@ -19,10 +19,15 @@ class PersonalsController < ApplicationController
   end
 
 def addressfill
-  @personal=PersonalDetail.new(name:params[:name],email:params[:email],gender:params[:gender],dob:params[:dob],contact:params[:contact],company_name:current_user.company_name,empid:current_user.empid,user_id:current_user.id)
-  @personal.save
+
 
 end
+
+  def addressupdate
+    @personal=PersonalDetail.new(name:params[:name],email:params[:email],gender:params[:gender],dob:params[:dob],contact:params[:contact],company_name:current_user.company_name,empid:current_user.empid,user_id:current_user.id)
+    @personal.save
+    redirect_to('/personals/addressfill')
+  end
   def for_saving
 
     #@personaldetail=PersonalDetail.new(params[:personaldetail])

@@ -21,20 +21,19 @@
         <td><%= person.dob %></td>
         <td><%= person.contact %></td>
 
-
+          <td>
     <% Address.find_all_by_company_name_and_empid( current_user.company_name, eachperson.empid).each do |address| %>
-      <td>
+        <ol><li>
         <%= address.doorno %>,
         <%= address.street %>,
         <%= address.area %>,
         <%= address.city %>,
         <%= address.state %>,
         <%= address.pincode %>.
-      </td>
-          </tr>
-          <td></td><td></td><td></td>
-          <td></td><td></td><td></td><td></td>
-    <%end %>
+
+      </li>
+        </ol>
+      <%end %></td></tr>
     <%end %>
   <% end %>
 

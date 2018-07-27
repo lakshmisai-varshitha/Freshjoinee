@@ -11,7 +11,6 @@ def for_saving
   @permission.save
 
   #if @permission.department == "admin" then @p = "admin" else @p= "guest" end
-byebug
 
   @user=User.new(name:params[:name],email:params[:email],password:params[:password],login_type:"guest",company_name:current_user.company_name, empid:eid)
 @user.save

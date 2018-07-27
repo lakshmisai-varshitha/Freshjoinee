@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,58 +14,51 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<% if user_signed_in? %>
+<% if user_signed_in? %><ul>
   <% Permission.find_all_by_company_name_and_empid(current_user.company_name,current_user.empid).each do |perm| %>
     <% if perm.personal_details %>
-      <%= link_to('Personal Details', users_personaldetails_path, :method=>'get') %>
+      <li><%= link_to('Personal Details', users_personaldetails_path, :method=>'get') %></li>
     <%end %>
     <% if perm.education_details %>
-      <%= link_to('Educational Details', users_educationaldetails_path, :method=>'get') %>
+      <li><%= link_to('Educational Details', users_educationaldetails_path, :method=>'get') %></li>
     <%end %>
     <% if perm.employment_details %>
-      <%= link_to('Employment Details', users_employmentdetails_path, :method=>'get') %>
+      <li><%= link_to('Employment Details', users_employmentdetails_path, :method=>'get') %></li>
     <%end %>
     <% if perm.finance_details %>
-      <%= link_to('Finance Details', users_financedetails_path, :method=>'get') %>
+      <li> <%= link_to('Finance Details', users_financedetails_path, :method=>'get') %></li>
     <%end %>
   <%end %>
-  <% if current_user.login_type == "guest"%>
-    Welcome to freshjoinee as guest at
-    <%=current_user.company_name%>
-  <% else%>
-    Welcome to freshjoinee  as admin at
-    <%= current_user.company_name %>
 
-  <%end%>
-  <li>
-    <%= link_to('Logout', destroy_user_session_path, :method=>'Delete') %>
-  </li>
+
 
   <% #@current_user =User.find_by(session[:current_user_id]%>
 
   <%if current_user.login_type =="admin" %>
     <li>
-      <%= link_to('add users',projects_second_path,:method=>'get') %>
+      <%= link_to('Add Users',projects_second_path,:method=>'get') %>
     </li>
     <li>
-      <%= link_to('give details',projects_third_path,:method=>'get') %>
+      <%= link_to('Give Details',projects_third_path,:method=>'get') %>
     </li>
   <%else %>
     <li>
-      <%= link_to('give details',projects_third_path,:method=>'get') %>
+      <%= link_to('Give Details',projects_third_path,:method=>'get') %>
     </li>
   <% end %>
-
+  <li>
+    <%= link_to('Logout', destroy_user_session_path, :method=>'Delete') %>
+  </li>
+  </ul>
 
 
 <% else %>
 
-  <li>
-    <%= link_to('Login', new_user_session_path, :method=>'get')  %>
-  </li>
+    <%#= link_to('Login', new_user_session_path, :method=>'get')  %>
+
+    <%#= link_to('Signup', new_user_registration_path, :method=>'get')  %>
 
 <% end %>
-
 <%= yield %>
 
 
