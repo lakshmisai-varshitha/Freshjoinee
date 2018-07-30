@@ -9,7 +9,7 @@
 
 <div class="signup-form">
 
-  <%= form_tag("/educationals/forsaving", method: "get") do %><br/>
+  <%= form_tag("/educationals/forsaving", method: "post") do %><br/>
     <h2>Fill your Education</h2>
     <div class="form-group">
       <%=label_tag(:education_type,"education_type:") %>
@@ -42,5 +42,5 @@
 
 
 
-<%=link_to "back",projects_add_info_links_path %>
+<%=link_to "back", :back %>
 </div>

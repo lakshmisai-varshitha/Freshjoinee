@@ -8,10 +8,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :company_name, :login_type, :name, :empid
   # attr_accessible :title, :body
   has_one :permission
-  has_one :personal_detail
+  has_one :personal
 has_many :addresses
-  has_many :educational_details
-  has_many :employment_details
+  has_many :educationals
+  has_many :employments
   has_many :insurances
-  has_one :pf
+  has_one :providentfund
 end

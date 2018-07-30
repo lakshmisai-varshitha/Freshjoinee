@@ -8,7 +8,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="signup-form">
-  <%= form_tag("/personals/forsaving", method: "get") do %>
+  <%= form_tag("/personals/forsaving", method: "post") do %>
     <div class="form-group">
       <%= label_tag(:doorno, "door_no") %>
       <%= text_field_tag(:doorno) %><br/>
@@ -37,10 +37,7 @@
       <%= label_tag(:country, "country:") %>
       <%= text_field_tag(:country) %><br/>
     </div>
-    <div class="form-group">
-      <%= label_tag(:address_type, "address_type:") %>
-      <%= text_field_tag(:address_type) %><br/>
-    </div>
+
     <div class="form-group">
       <%=label_tag(:address_type,"address type") %>
       <%= select_tag(:address_type,options_for_select([['present','present'],['permanent','permanent'],['previous','previous']]))%>

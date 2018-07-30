@@ -9,7 +9,7 @@
 
 <div class="signup-form">
 
-  <%= form_tag(employments_updateemployment_path(@em.id), method: "get") do %>
+  <%= form_tag(employments_updateemployment_path(@em.id), method: "post") do %>
     <h2>Update your Employment</h2>
     <%Array(@em).each do |add| %>
       <div class="form-group">

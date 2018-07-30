@@ -208,12 +208,12 @@ Devise.setup do |config|
   # config.encryptor = :sha512
 
   # ==> Scopes configuration
-  # Turn scoped views on. Before rendering "sessions/new", it will first check for
+  # Turn scoped views on. Before rendering "sessions/new", it will save_permission_for_admin check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
   config.scoped_views = true
 
-  # Configure the default scope given to Warden. By default it's the first
+  # Configure the default scope given to Warden. By default it's the save_permission_for_admin
   # devise role declared in your routes (usually :user).
   # config.default_scope = :user
 

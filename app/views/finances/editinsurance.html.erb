@@ -8,7 +8,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="signup-form">
-  <%= form_tag(finances_updateinsurance_path(@in.id), method: "get") do %>
+  <%= form_tag(finances_updateinsurance_path(@in.id), method: "post") do %>
     <h1>Update Insurance Details</h1>
     <%Array(@in).each do |inn| %>
       <div class="form-group">

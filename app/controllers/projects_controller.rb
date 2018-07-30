@@ -40,7 +40,7 @@ def details
   #@address.save
 end
 
-  def first
+  def save_permission_for_admin
 
     if(current_user)
       if(current_user.sign_in_count==1 && current_user.login_type=="admin")

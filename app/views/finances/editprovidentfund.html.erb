@@ -8,7 +8,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="signup-form">
-  <%= form_tag(finances_updateprovidentfund_path(@pf.id), method: "get") do %>
+  <%= form_tag(finances_updateprovidentfund_path(@pf.id), method: "post") do %>
     <h1>Update Provident Fund</h1>
     <%Array(@pf).each do |pf| %>
       <div class="form-group">

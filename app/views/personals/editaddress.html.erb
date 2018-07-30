@@ -8,7 +8,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="signup-form">
-  <%= form_tag(personals_updateaddress_path(@addd.id), method: "get") do %>
+  <%= form_tag(personals_updateaddress_path(@addd.id), method: "post") do %>
     <h2>Update your Address</h2>
     <%Array(@addd).each do |add| %>
       <div class="form-group">

@@ -14,14 +14,19 @@
     <td><%= eachperson.id %></td>
     <td><%= eachperson.empid %></td>
     <td><%= eachperson.name %></td>
-    <% find_all_insurancedetail_by_empid(eachperson).each do |person| %>
+      <% insurance_set=find_all_insurancedetail_by_empid(eachperson) %>
+      <% count= insurance_set.size %><%i=0 %>
+    <% insurance_set.each do |person| %>
 
         <td><%= person.relation_type %></td>
         <td><%= person.name %></td>
         <td><%= person.dob %></td>
         <td><%= person.gender %></td>
-      </tr>
-        <td></td><td></td><td></td>
+        <% i=i+1 %>
+        <% if i!=count %>
+          </tr>
+          <td></td><td></td><td></td>
+          <%end %>
     <%end %>
 
   <% end %>

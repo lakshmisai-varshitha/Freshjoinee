@@ -50,12 +50,12 @@ a:focus {
 
 a:hover {
     text-decoration: none;
-    color: #57b846;
+   // color: #57b846;
 }
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: #111;
-    margin: 10px;
+    background-color: darkseagreen;
+    //margin: 10px;
 
 }
 body{

@@ -3,12 +3,17 @@
 
 <%#link_to "edit",personals_editpersonal_path %>
 <ul style="width: 250px">
-  <li style="float:none;"><%= link_to "Enter your Details",personals_filldetails_path %></li>
+  <%@user=current_user %>
+  <% if @user.personal.nil? %>
+    <li style="float:none;"><%= link_to "Enter your Details",personals_filldetails_path %></li>
+  <% end %>
+
+
   <li style="float:none;"><%= link_to "Add more Address", personals_addressfill_path %></li>
   <li style="float:none;"><%=link_to "Show Address",address_path %></li>
 </ul>
 <%#@p=PersonalDetail.find_by_company_name_and_empid(current_user.company_name,current_user.empid) %>
-<%if (@p).nil?%>
+<%if Array(@p).empty?%>
 
 <%else %>
   <table>

@@ -14,41 +14,37 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-<% if user_signed_in? %><ul>
+<% if user_signed_in? %><ul >
   <% find_all_user_by_company_name_and_empid(current_user).each do |perm| %>
     <% if perm.personal_details %>
-      <li><%= link_to('Personal Details', users_personaldetails_path, :method=>'get') %></li>
+      <li style="width:14%"><%= link_to('Personal Details', users_personaldetails_path, :method=>'get') %></li>
     <%end %>
     <% if perm.education_details %>
-      <li><%= link_to('Educational Details', users_educationaldetails_path, :method=>'get') %></li>
+      <li style="width:14%"><%= link_to('Educational Details', users_educationaldetails_path, :method=>'get') %></li>
     <%end %>
     <% if perm.employment_details %>
-      <li><%= link_to('Employment Details', users_employmentdetails_path, :method=>'get') %></li>
+      <li style="width:14%"><%= link_to('Employment Details', users_employmentdetails_path, :method=>'get') %></li>
     <%end %>
     <% if perm.finance_details %>
-      <li> <%= link_to('Finance Details', users_financedetails_path, :method=>'get') %></li>
+      <li style="width:14%"> <%= link_to('Finance Details', users_financedetails_path, :method=>'get') %></li>
     <%end %>
   <%end %>
 
 
 
   <% #@current_user =User.find_by(session[:current_user_id]%>
-
-  <%if current_user.login_type =="admin" %>
-    <li>
-      <%= link_to('Add Users',projects_adduser_path,:method=>'get') %>
-    </li>
-    <li>
-      <%= link_to('Give Details',projects_add_info_links_path,:method=>'get') %>
-    </li>
-  <%else %>
-    <li>
-      <%= link_to('Give Details',projects_add_info_links_path,:method=>'get') %>
-    </li>
-  <% end %>
-  <li>
+  <li style="width:10%;float:right">
     <%= link_to('Logout', destroy_user_session_path, :method=>'Delete') %>
   </li>
+  <li style="width:10%;float:right">
+    <%= link_to('Give Details',projects_add_info_links_path,:method=>'get') %>
+  </li>
+  <%if current_user.login_type =="admin" %>
+    <li style="width:10%;float:right">
+      <%= link_to('Add Users',projects_adduser_path,:method=>'get') %>
+    </li>
+  <% end %>
+
   </ul>
 
 

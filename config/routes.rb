@@ -2,11 +2,11 @@ Freshjoinee::Application.routes.draw do
   devise_for :users
 
 
-  get 'projects/first' => 'projects#first'
+  post 'projects/save_permission_for_admin' => 'projects#save_permission_for_admin'
 
   devise_scope :user do
       #root :to => 'devise/sessions#new'
-  root :to =>'projects#first'
+  root :to =>'projects#save_permission_for_admin'
   get 'users/personaldetails' => 'personals#view'
   get 'users/educationaldetails' => 'educationals#view'
   get 'users/employmentdetails' => 'employments#view'
@@ -15,45 +15,44 @@ Freshjoinee::Application.routes.draw do
 
   get 'projects/adduser'=>'projects#adduser'
   get 'projects/add_info_links' =>'projects#add_info_links'
-  get 'projects/forsaving' => 'projects#for_saving'
-    get 'projects/details' => 'projects#details'
+  post 'projects/forsaving' => 'projects#for_saving'
+  get 'projects/details' => 'projects#details'
 
   get 'educationals/filldetails'=>'educationals#filldetails'
-    get 'educationals/self_view'=>'educationals#self_view'
-  get 'educationals/forsaving'=>'educationals#for_saving'
+  get 'educationals/self_view'=>'educationals#self_view'
+  post 'educationals/forsaving'=>'educationals#for_saving'
   get 'educationals/editeducation/:id'=>'educationals#editeducation',as:'educationals_editeducation'
-  get 'educationals/updateeducation/:id'=>'educationals#updateeducation',as:'educationals_updateeducation'
+  post 'educationals/updateeducation/:id'=>'educationals#updateeducation',as:'educationals_updateeducation'
 
-  resource :finances, controller: :finances  do
-
+  resource :finances  do
+    get 'selfview'=>'finances#self_view'
+    get 'filldetails'=>'finances#filldetails'
   end
 
-  get 'finances/filldetails'=>'finances#filldetails'
-  get 'finances/selfview'=>'finances#self_view'
-  get 'finances/forsaving'=>'finances#for_saving'
+  post 'finances/forsaving'=>'finances#for_saving'
   get 'finances/editinsurance/:id'=>'finances#editinsurance',as:'finances_editinsurance'
-  get 'finances/updateprovidentfund'=>'finances#updateprovidentfund'
-  get 'finances/updateinsurance/:id'=>'finances#updateinsurance',as:'finances_updateinsurance'
+  post 'finances/updateprovidentfund'=>'finances#updateprovidentfund'
+  post 'finances/updateinsurance/:id'=>'finances#updateinsurance',as:'finances_updateinsurance'
   get 'finances/insurancefill'=>'finances#insurancefill',as:'finances_insurancefill'
-  get 'finances/insuranceupdate'=>'finances#insuranceupdate',as:'finances_insuranceupdate'
+  post 'finances/insuranceupdate'=>'finances#insuranceupdate',as:'finances_insuranceupdate'
   get 'finances/editprovidentfund/:id'=>'finances#editprovidentfund',as:'edit_providentfund'
   get 'finances/insurance'=>'finances#insurance',as:'insurance'
 
   get 'personals/filldetails'=>'personals#filldetails'
   get 'personals/self_view'=>'personals#self_view'
-get 'personals/forsaving'=>'personals#for_saving'
-    get 'personals/editpersonal/:id'=>'personals#editpersonal',as:'personals_editpersonal'
-   get 'personals/updatepersonal'=>'personals#updatepersonal'
-  get 'personals/updateaddress/:id'=>'personals#updateaddress',as:'personals_updateaddress'
+  post 'personals/forsaving'=>'personals#for_saving'
+  get 'personals/editpersonal/:id'=>'personals#editpersonal',as:'personals_editpersonal'
+  post 'personals/updatepersonal'=>'personals#updatepersonal'
+  post 'personals/updateaddress/:id'=>'personals#updateaddress',as:'personals_updateaddress'
   get 'personals/addressfill'=>'personals#addressfill',as:'personals_addressfill'
-  get 'personals/addressupdate'=>'personals#addressupdate',as:'personals_addressupdate'
+  post 'personals/addressupdate'=>'personals#addressupdate',as:'personals_addressupdate'
   get 'personals/editaddress/:id'=>'personals#editaddress',as:'edit_address'
   get 'personals/address'=>'personals#address',as:'address'
 
   get 'employments/self_view'=>'employments#self_view'
-get 'employments/forsaving'=>'employments#for_saving'
-    get 'employments/editemployment/:id'=>'employments#editemployment',as:'employments_editemployment'
-    get 'employments/updateemployment/:id'=>'employments#updateemployment',as:'employments_updateemployment'
+  post 'employments/forsaving'=>'employments#for_saving'
+  get 'employments/editemployment/:id'=>'employments#editemployment',as:'employments_editemployment'
+  post 'employments/updateemployment/:id'=>'employments#updateemployment',as:'employments_updateemployment'
   get 'employments/filldetails'=>'employments#filldetails'
     #get 'personals/address/:id'=>'personals#address', as:'personal_address_id'
 
@@ -62,7 +61,7 @@ end
   #:controllers =>{ :registrations =>'memberships'}
 
   # The priority is based upon order of creation:
-  # first created -> highest priority.
+  # save_permission_for_admin created -> highest priority.
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

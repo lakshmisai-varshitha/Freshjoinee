@@ -1,6 +1,9 @@
 <h1>PF Details</h1>
 <ul style="width:220px">
-  <li style="float:none; width:100%"><%= link_to "Add Provident Fund",finances_filldetails_path %></li>
+  <%@user=current_user %>
+  <% if @user.providentfund.nil? %>
+  <li style="float:none; width:100%"><%= link_to "Add Provident Fund",filldetails_finances_path %></li>
+    <%end %>
   <li style="float:none; width:100%"><%= link_to "Add Insurance ", finances_insurancefill_path %></li>
   <li style="float:none; width:100%"><%= link_to "show insurance",insurance_path %></li>
 </ul>

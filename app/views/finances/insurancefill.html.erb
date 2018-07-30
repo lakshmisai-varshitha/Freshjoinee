@@ -8,7 +8,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <div class="signup-form">
-  <%= form_tag("/finances/forsaving", method: "get") do %>
+  <%= form_tag("/finances/forsaving", method: "post") do %>
     <h1> Add Insurance Details</h1>
     <div class="form-group">
       <%=label_tag(:relation_type,"relation type") %>

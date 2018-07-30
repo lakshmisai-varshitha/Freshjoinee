@@ -1,7 +1,8 @@
 <h1>My employment Details</h1>
 <%#=link_to "edit",employments_editemployment_path %>
 <ul style="width: 220px"><li style="float:none; width:100%"><%= link_to "Fill your Employment",employments_filldetails_path %></li></ul>
-<%if (@empl).nil?%>
+
+<%if (@empl).empty?%>
 
 <%else %>
   <table>
