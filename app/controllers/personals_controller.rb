@@ -10,7 +10,7 @@ class PersonalsController < ApplicationController
 
   def self_view
 
-    @p=PersonalDetail.find_by_company_name_and_empid(current_user.company_name,current_user.empid)
+    @p=Personal.find_by_company_name_and_empid(current_user.company_name,current_user.empid)
 
 
     #if @ad==nil
@@ -24,7 +24,7 @@ def addressfill
 end
 
   def addressupdate
-    @personal=PersonalDetail.new(name:params[:name],email:params[:email],gender:params[:gender],dob:params[:dob],contact:params[:contact],company_name:current_user.company_name,empid:current_user.empid,user_id:current_user.id)
+    @personal=Personal.new(name:params[:name],email:params[:email],gender:params[:gender],dob:params[:dob],contact:params[:contact],company_name:current_user.company_name,empid:current_user.empid,user_id:current_user.id)
     @personal.save
     redirect_to('/personals/addressfill')
   end
@@ -43,13 +43,13 @@ end
 
   def editpersonal
 
-    @pe=PersonalDetail.find(params[:id])
+    @pe=Personal.find(params[:id])
 
   end
 
 def updatepersonal
 
-  @pers=PersonalDetail.find_by_user_id(current_user.id)
+  @pers=Personal.find_by_user_id(current_user.id)
   @pers.update_attributes(name:params[:name],email:params[:email],gender:params[:gender],dob:params[:dob],contact:params[:contact])
   #@adtype=params[:address_type]
   #@addr=Address.find_by_address_type_and_user_id(@adtype,current_user.id)

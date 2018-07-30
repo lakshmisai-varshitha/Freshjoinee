@@ -1,16 +1,30 @@
 
 <%if @ad.nil? %>
 <%else %>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Address Type</th>
+      <th>Door no</th>
+      <th>Street</th>
+      <th>City</th>
+      <th>District</th>
+      <th>State</th>
+      <th>Pincode</th>
+      <th>Country</th>
+    </tr>
   <%@ad.each do |addr| %>
-    id<%=link_to addr.id,edit_address_path(addr.id) %>
-    address-type<%=addr.address_type %><br/>
-    dno:<%=addr.doorno %><br/>
-    street:<%=addr.street %><br/>
-    city:<%=addr.city %><br/>
-    district:<%=addr.district %><br/>
-    state:<%=addr.state %><br/>
-    pincode:<%=addr.pincode %><br/>
-    country:<%=addr.country %><br/>
-
+      <tr>
+      <td><%=link_to addr.id,edit_address_path(addr.id) %></td>
+      <td><%=addr.address_type %></td>
+      <td><%=addr.doorno %></td>
+      <td><%=addr.street %></td>
+      <td><%=addr.city %></td>
+      <td><%=addr.district %></td>
+      <td><%=addr.state %></td>
+      <td><%=addr.pincode %></td>
+      <td><%=addr.country %></td>
+      </tr>
   <% end %>
+  </table>
 <%end%>

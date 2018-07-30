@@ -1,15 +1,23 @@
-<h1>my employment data</h1>
+<h1>My employment Details</h1>
 <%#=link_to "edit",employments_editemployment_path %>
-
+<ul style="width: 220px"><li style="float:none; width:100%"><%= link_to "Fill your Employment",employments_filldetails_path %></li></ul>
 <%if (@empl).nil?%>
 
 <%else %>
-  <% @empl.each do |emp| %>
-    id<%=link_to emp.id,employments_editemployment_path(emp.id) %>
-    company name:<%=emp.company_name %><br/>
-    designation:<%=emp.designation %><br/>
-    experience:<%=emp.experience %><br/>
-
-  <%end %>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Company Name</th>
+      <th>Designation</th>
+      <th>Experience</th>
+    </tr>
+    <% @empl.each do |emp| %>
+      <tr>
+        <td><%=link_to emp.id,employments_editemployment_path(emp.id) %></td>
+        <td><%=emp.company_name %></td>
+        <td><%=emp.designation %></td>
+        <td><%=emp.experience %></td>
+      </tr>
+    <%end %>
+  </table>
 <%end %>
-<%= link_to "enter",employments_filldetails_path %>

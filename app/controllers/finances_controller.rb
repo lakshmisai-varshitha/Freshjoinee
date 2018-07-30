@@ -9,7 +9,7 @@ class FinancesController < ApplicationController
   end
 
   def self_view
-    @pf=Pf.find_by_user_id(current_user.id)
+    @pf=Providentfund.find_by_user_id(current_user.id)
   end
 
     def for_saving
@@ -23,7 +23,7 @@ class FinancesController < ApplicationController
 
   end
   def insuranceupdate
-    @pf=Pf.new(aadhar:params[:aadhar],pan:params[:pan],ifsc:params[:ifsc],bank_name:params[:bank_name],acc_number:params[:acc_number],company_name:current_user.company_name,empid:current_user.empid,user_id:current_user.id)
+    @pf=Providentfund.new(aadhar:params[:aadhar],pan:params[:pan],ifsc:params[:ifsc],bank_name:params[:bank_name],acc_number:params[:acc_number],company_name:current_user.company_name,empid:current_user.empid,user_id:current_user.id)
     @pf.save
     redirect_to('/finances/insurancefill')
   end
@@ -33,7 +33,7 @@ class FinancesController < ApplicationController
 
     end
   def editprovidentfund
-    @pf=Pf.find(params[:id])
+    @pf=Providentfund.find(params[:id])
   end
     def updateinsurance
       @in=Insurance.find(params[:id])
@@ -42,7 +42,7 @@ class FinancesController < ApplicationController
 
   end
   def updateprovidentfund
-    @pf=Pf.find(params[:id])
+    @pf=Providentfund.find(params[:id])
     @pf.update_attributes(aadhar:params[:aadhar],pan:params[:pan],ifsc:params[:ifsc],bank_name:params[:bank_name],acc_number:params[:acc_number])
 
   end

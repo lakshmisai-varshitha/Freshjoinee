@@ -1,36 +1,49 @@
-<h1>edit details</h1>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<%= form_tag(finances_updateinsurance_path(@in.id), method: "get") do %>
-<%Array(@in).each do |inn| %>
-  <%=label_tag(:relation_type,"relation type") %>
-  <%= select_tag(:relation_type,options_for_select([['mother',1],['father',2],['spouse',3],['child',4]]))%><br/>
+<div class="signup-form">
+  <%= form_tag(finances_updateinsurance_path(@in.id), method: "get") do %>
+    <h1>Update Insurance Details</h1>
+    <%Array(@in).each do |inn| %>
+      <div class="form-group">
+        <%=label_tag(:relation_type,"relation type") %>
+        <%= select_tag(:relation_type,options_for_select([['mother','mother'],['father','father'],['spouse','spouse'],['child','child']],inn.relation_type))%><br/>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:name_of_relation, "name of relation:") %>
+        <%= text_field_tag(:name_of_relation,inn.name) %><br/>
+      </div>
+      <div class="form-group">
+        <%= label_tag(:dob_of_relation, "dob of relation:") %>
+        <%= date_select(:dob_of_relation,:dob) %><br/>
+      </div>
+      <div class="form-group">
+        <%if inn.gender=="male" %>
+          <%= label_tag(:gender, "male:") %>
+          <%= radio_button_tag(:gender,"male",checked:true) %>
+          <%= label_tag(:gender, "female:") %>
+          <%= radio_button_tag(:gender,"female") %><br/>
+        <%else %>
+          <%= label_tag(:gender, "male:") %>
+          <%= radio_button_tag(:gender,"male") %>
+          <%= label_tag(:gender, "female:") %>
+          <%= radio_button_tag(:gender,"female",checked:true) %><br/>
+        <%end %>
+      </div>
+    <%end %>
+    <div class="form-group">
+      <%= submit_tag("Submit") %>
+    </div>
+  <% end %>
 
-  <%= label_tag(:name_of_relation, "name of relation:") %>
-  <%= text_field_tag(:name_of_relation,inn.name) %><br/>
-
-  <%= label_tag(:dob_of_relation, "dob of relation:") %>
-  <%= date_select(:dob_of_relation,:dob) %><br/>
-
-
-  <%if inn.gender=="male" %>
-    <%= label_tag(:gender, "male:") %>
-    <%= radio_button_tag(:gender,"male",checked:true) %>
-    <%= label_tag(:gender, "female:") %>
-    <%= radio_button_tag(:gender,"female") %><br/>
-  <%else %>
-    <%= label_tag(:gender, "male:") %>
-    <%= radio_button_tag(:gender,"male") %>
-    <%= label_tag(:gender, "female:") %>
-    <%= radio_button_tag(:gender,"female",checked:true) %><br/>
-  <%end %>
-<%end %>
-
-  <%= submit_tag("Submit") %>
-<% end %>
-
-<%=link_to "back",projects_third_path %>
-
+<%=link_to "back",projects_add_info_links_path %>
+</div>
 
 
 

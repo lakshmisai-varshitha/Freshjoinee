@@ -1,26 +1,37 @@
-<h1>employment</h1>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
-<h2>employment details</h2>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<%= form_tag("/employments/forsaving", method: "get") do %>
-
-<%= label_tag(:comp_name, "comp_name:") %>
-<%= text_field_tag(:comp_name) %><br/>
-
-<%= label_tag(:from_date, "from_date:") %>
-<%= date_select(:from_date,:from_date) %><br/>
-<%= label_tag(:to_date, "to_date:") %>
-<%= date_select(:to_date,:to_date) %><br/>
-
-
-
-  <%=label_tag(:department,"department:") %>
-  <%= select_tag(:department,options_for_select([['hr',1],['developer',2],['admin',3],['sales',4],['marketing',5],['support',6],['manager',7]]))%><br/>
-
-<%= label_tag(:experience, "experience:") %>
-<%= text_field_tag(:experience) %><br/>
-
-  <%= submit_tag("Submit") %>
+<div class="signup-form">
+  <%= form_tag("/employments/forsaving", method: "get") do %>
+    <h2>Fill your Employment</h2>
+    <div class="form-group">
+      <%= label_tag(:comp_name, "comp_name:") %>
+      <%= text_field_tag(:comp_name) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:from_date, "from_date:") %>
+      <%= date_select(:from_date,:from_date) %><br/>
+      <%= label_tag(:to_date, "to_date:") %>
+      <%= date_select(:to_date,:to_date) %><br/>
+    </div>
+    <div class="form-group">
+      <%=label_tag(:department,"department:") %>
+      <%= select_tag(:department,options_for_select([['hr','hr'],['developer','developer'],['admin','admin'],['sales','sales'],['marketing','marketing'],['support','support'],['manager','manager']]))%><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:experience, "experience:") %>
+      <%= text_field_tag(:experience) %><br/>
+    </div>
+    <div class="form-group">
+      <%= submit_tag("Submit") %>
+    </div>
 <% end %>
 
-<%=link_to "back",projects_third_path %>
+<%=link_to "back",projects_add_info_links_path %>
+</div>

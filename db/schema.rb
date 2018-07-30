@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20180724200847) do
+ActiveRecord::Schema.define(:version => 20180729120840) do
 
   create_table "addresses", :force => true do |t|
     t.string   "company_name"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(:version => 20180724200847) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "educational_details", :force => true do |t|
+  create_table "educationals", :force => true do |t|
     t.string   "company_name"
     t.string   "empid"
     t.string   "education_type"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20180724200847) do
     t.integer  "user_id"
   end
 
-  create_table "employment_details", :force => true do |t|
+  create_table "employments", :force => true do |t|
     t.string   "company_name"
     t.string   "empid"
     t.string   "comp_name"
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(:version => 20180724200847) do
     t.integer  "user_id"
   end
 
-  create_table "personal_details", :force => true do |t|
+  create_table "personals", :force => true do |t|
     t.string   "company_name"
     t.string   "empid"
     t.string   "name"
@@ -102,7 +102,7 @@ ActiveRecord::Schema.define(:version => 20180724200847) do
     t.integer  "user_id"
   end
 
-  create_table "pfs", :force => true do |t|
+  create_table "providentfunds", :force => true do |t|
     t.string   "company_name"
     t.string   "empid"
     t.string   "aadhar"

@@ -1,4 +1,4 @@
-<h1>Insurance details</h1><br>
+<h1>Insurance Details</h1><br>
 <table >
   <tr>
     <th>S.no</th>
@@ -9,12 +9,12 @@
     <th>Date of Birth</th>
     <th>Gender</th>
   </tr>
-  <% User.find_all_by_company_name(current_user.company_name).each do |eachperson|  %>
+  <% find_all_user_by_company_name(current_user).each do |eachperson|  %>
     <tr>
     <td><%= eachperson.id %></td>
     <td><%= eachperson.empid %></td>
     <td><%= eachperson.name %></td>
-    <% Insurance.find_all_by_empid(eachperson.empid).each do |person| %>
+    <% find_all_insurancedetail_by_empid(eachperson).each do |person| %>
 
         <td><%= person.relation_type %></td>
         <td><%= person.name %></td>
@@ -28,7 +28,7 @@
 
 </table>
 <br><br>
-<h1>PF details</h1><br>
+<h1>ProvidentFund Details</h1><br>
 <table>
   <tr>
     <th>S.no</th>
@@ -40,12 +40,12 @@
     <th>Account number</th>
     <th>IFSC</th>
   </tr>
-  <% User.find_all_by_company_name(current_user.company_name).each do |eachperson| %>
+  <% find_all_user_by_company_name(current_user).each do |eachperson| %>
       <tr>
         <td><%= eachperson.id %></td>
         <td><%= eachperson.empid %></td>
         <td><%= eachperson.name %></td>
-        <% Pf.find_all_by_empid(eachperson.empid).each do |person| %>
+        <% find_providentfunddetail_by_empid(eachperson).each do |person| %>
         <td><%= person.aadhar %></td>
         <td><%= person.pan %></td>
         <td><%= person.bank_name %></td>

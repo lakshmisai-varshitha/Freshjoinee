@@ -1,31 +1,46 @@
-<h1>education</h1>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
-<h2>education details</h2>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<%= form_tag("/educationals/forsaving", method: "get") do %><br/>
+<div class="signup-form">
+
+  <%= form_tag("/educationals/forsaving", method: "get") do %><br/>
+    <h2>Fill your Education</h2>
+    <div class="form-group">
+      <%=label_tag(:education_type,"education_type:") %>
+      <%= select_tag(:education_type,options_for_select([['10th','10th'],['12th','12th'],['b.tech','b.tech'],['b.com','b.com'],['m.tech','m.tech'],['ms','ms'],['Phd','p.hd'],['other','other']]))%>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:institution, "institution:") %>
+      <%= text_field_tag(:institution) %><br/>
+    </div>
+    <div class="form-group">
+      <%=label_tag(:stream,"stream:") %>
+      <%= select_tag(:stream,options_for_select([['state board','state board'],['central-board','central-board'],['cse','cse'],['it','it'],['ict','ict'],['other','other']]))%><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:percentage, "percentage:") %>
+      <%= text_field_tag(:percentage) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:location, "location:") %>
+      <%= text_field_tag(:location) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:year_completion, "year_of_completion") %>
+      <%= text_field_tag(:year_completion) %><br/>
+    </div>
+    <div class="form-group">
+      <%= submit_tag("Submit") %>
+    </div>
+  <% end %>
 
 
-  <%=label_tag(:education_type,"education_type:") %>
-  <%= select_tag(:education_type,options_for_select([['10th',1],['12th',2],['b.tech',3],['b.com',4],['m.tech',5],['ms',6],['Phd',7]]))%>
 
-<%= label_tag(:institution, "institution:") %>
-<%= text_field_tag(:institution) %><br/>
-
-
-  <%=label_tag(:stream,"stream:") %>
-  <%= select_tag(:stream,options_for_select([['state board',1],['central-board',2],['cse',3],['it',4],['ict',5],['other',6]]))%><br/>
-
-<%= label_tag(:percentage, "percentage:") %>
-<%= text_field_tag(:percentage) %><br/>
-
-<%= label_tag(:location, "location:") %>
-<%= text_field_tag(:location) %><br/>
-
-<%= label_tag(:year_completion, "year_of_completion") %>
-<%= text_field_tag(:year_completion) %><br/>
-  <%= submit_tag("Submit") %>
-<% end %>
-
-
-
-<%=link_to "back",projects_third_path %>
+<%=link_to "back",projects_add_info_links_path %>
+</div>

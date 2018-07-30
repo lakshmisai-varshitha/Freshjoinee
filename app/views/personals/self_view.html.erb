@@ -1,27 +1,35 @@
-<h1>my personal data</h1>
+<h1>My Personal Details</h1>
 
 
 <%#link_to "edit",personals_editpersonal_path %>
-
-<%= link_to "enter",personals_filldetails_path %>
-<%= link_to "add address details", personals_addressfill_path %>
+<ul style="width: 250px">
+  <li style="float:none;"><%= link_to "Enter your Details",personals_filldetails_path %></li>
+  <li style="float:none;"><%= link_to "Add more Address", personals_addressfill_path %></li>
+  <li style="float:none;"><%=link_to "Show Address",address_path %></li>
+</ul>
 <%#@p=PersonalDetail.find_by_company_name_and_empid(current_user.company_name,current_user.empid) %>
 <%if (@p).nil?%>
 
-  <%else %>
+<%else %>
+  <table>
+    <tr><th>Id</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Email</th>
+    <th>Date of Birth</th>
+    <th>Contact</th></tr>
    <% Array(@p).each do |pers| %>
-    id:<%=link_to pers.id, personals_editpersonal_path(pers.id) %>
-    name:<%=pers.name %><br/>
-    gender:<%=pers.gender %><br/>
-    email:<%=pers.email %><br/>
-    dob:<%=pers.dob %><br/>
-    contact:<%=pers.contact %><br/>
-    <%end %>
-
+    <tr>
+      <td><%=link_to pers.id, personals_editpersonal_path(pers.id) %></td>
+      <td><%=pers.name %></td>
+      <td><%=pers.gender %></td>
+      <td><%=pers.email %></td>
+      <td><%=pers.dob %></td>
+      <td><%=pers.contact %></td>
+    </tr>
+   <%end %>
+  </table>
 <%end %>
-
-<%=link_to "addresses",address_path %>
-
 
 
 

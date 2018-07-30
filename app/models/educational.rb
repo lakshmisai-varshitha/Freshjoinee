@@ -1,4 +1,4 @@
-class EducationalDetail < ActiveRecord::Base
+class Educational < ActiveRecord::Base
   attr_accessible :company_name, :empid, :institution, :location, :percentage, :stream, :education_type, :year_completion,:user_id
-belongs_to :user
+  belongs_to :user
 end

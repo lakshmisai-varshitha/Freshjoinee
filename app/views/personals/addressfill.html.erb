@@ -1,36 +1,53 @@
-<h2>address details</h2>
-<div class="container">
+<h2>Address Details</h2><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
-<%= form_tag("/personals/forsaving", method: "get") do %>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<div class="signup-form">
+  <%= form_tag("/personals/forsaving", method: "get") do %>
+    <div class="form-group">
+      <%= label_tag(:doorno, "door_no") %>
+      <%= text_field_tag(:doorno) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:street, "street") %>
+      <%= text_field_tag(:street) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:city, "city:") %>
+      <%= text_field_tag(:city) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:district, "district:") %>
+      <%= text_field_tag(:district) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:state, "state:") %>
+      <%= text_field_tag(:state) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:pincode, "pincode") %>
+    <%= text_field_tag(:pincode) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:country, "country:") %>
+      <%= text_field_tag(:country) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:address_type, "address_type:") %>
+      <%= text_field_tag(:address_type) %><br/>
+    </div>
+    <div class="form-group">
+      <%=label_tag(:address_type,"address type") %>
+      <%= select_tag(:address_type,options_for_select([['present','present'],['permanent','permanent'],['previous','previous']]))%>
+    </div>
 
-    <%= label_tag(:doorno, "door_no") %>
-  <%= text_field_tag(:doorno) %><br/>
-
-    <%= label_tag(:street, "street") %>
-   <%= text_field_tag(:street) %><br/>
-
-    <%= label_tag(:city, "city:") %>
-     <%= text_field_tag(:city) %><br/>
-
-   <%= label_tag(:district, "district:") %>
-    <%= text_field_tag(:district) %><br/>
-
-  <%= label_tag(:state, "state:") %>
-  <%= text_field_tag(:state) %><br/>
-
-  <%= label_tag(:pincode, "pincode") %>
-  <%= text_field_tag(:pincode) %><br/>
-
-  <%= label_tag(:country, "country:") %>
-  <%= text_field_tag(:country) %><br/>
-
-  <%= label_tag(:address_type, "address_type:") %>
-  <%= text_field_tag(:address_type) %><br/>
-  <%=label_tag(:address_type,"address type") %>
-  <%= select_tag(:address_type,options_for_select([['present',1],['permanent',2],['previous',3]]))%>
-</div>
-
-
-  <%= submit_tag("Submit") %>
+    <div class="form-group">
+      <%= submit_tag("Submit") %>
+    </div>
+    </div>
 <%end %>

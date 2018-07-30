@@ -1,4 +1,4 @@
-<h1>personal details</h1><br>
+<h1>Personal Details</h1><br>
 <table >
   <tr>
     <th>S.no</th>
@@ -10,19 +10,19 @@
     <th>Contact</th>
     <th>Address</th>
   </tr>
-<% User.find_all_by_company_name(current_user.company_name).each do |eachperson|  %>
+<% find_all_user_by_company_name(current_user).each do |eachperson|  %>
       <tr>
         <td><%= eachperson.id %></td>
         <td><%= eachperson.empid %></td>
         <td><%= eachperson.name %></td>
-        <% PersonalDetail.find_all_by_empid(eachperson.empid).each do |person| %>
+        <% find_all_personaldetail_by_empid(eachperson).each do |person| %>
         <td><%= person.email %></td>
         <td><%= person.gender %></td>
         <td><%= person.dob %></td>
         <td><%= person.contact %></td>
 
           <td>
-    <% Address.find_all_by_company_name_and_empid( current_user.company_name, eachperson.empid).each do |address| %>
+    <% find_all_address_by_companyname_and_empid(current_user, eachperson).each do |address| %>
         <ol><li>
         <%= address.doorno %>,
         <%= address.street %>,

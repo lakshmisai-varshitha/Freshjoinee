@@ -13,8 +13,8 @@ Freshjoinee::Application.routes.draw do
   get 'users/financedetails' => 'finances#view'
 
 
-  get 'projects/second'=>'projects#second'
-  get 'projects/third' =>'projects#third'
+  get 'projects/adduser'=>'projects#adduser'
+  get 'projects/add_info_links' =>'projects#add_info_links'
   get 'projects/forsaving' => 'projects#for_saving'
     get 'projects/details' => 'projects#details'
 
@@ -23,6 +23,10 @@ Freshjoinee::Application.routes.draw do
   get 'educationals/forsaving'=>'educationals#for_saving'
   get 'educationals/editeducation/:id'=>'educationals#editeducation',as:'educationals_editeducation'
   get 'educationals/updateeducation/:id'=>'educationals#updateeducation',as:'educationals_updateeducation'
+
+  resource :finances, controller: :finances  do
+
+  end
 
   get 'finances/filldetails'=>'finances#filldetails'
   get 'finances/selfview'=>'finances#self_view'

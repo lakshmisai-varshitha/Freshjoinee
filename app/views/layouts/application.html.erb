@@ -15,7 +15,7 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 <% if user_signed_in? %><ul>
-  <% Permission.find_all_by_company_name_and_empid(current_user.company_name,current_user.empid).each do |perm| %>
+  <% find_all_user_by_company_name_and_empid(current_user).each do |perm| %>
     <% if perm.personal_details %>
       <li><%= link_to('Personal Details', users_personaldetails_path, :method=>'get') %></li>
     <%end %>
@@ -36,14 +36,14 @@
 
   <%if current_user.login_type =="admin" %>
     <li>
-      <%= link_to('Add Users',projects_second_path,:method=>'get') %>
+      <%= link_to('Add Users',projects_adduser_path,:method=>'get') %>
     </li>
     <li>
-      <%= link_to('Give Details',projects_third_path,:method=>'get') %>
+      <%= link_to('Give Details',projects_add_info_links_path,:method=>'get') %>
     </li>
   <%else %>
     <li>
-      <%= link_to('Give Details',projects_third_path,:method=>'get') %>
+      <%= link_to('Give Details',projects_add_info_links_path,:method=>'get') %>
     </li>
   <% end %>
   <li>
@@ -54,7 +54,7 @@
 
 <% else %>
 
-    <%#= link_to('Login', new_user_session_path, :method=>'get')  %>
+    <%#= link_to('Login', new_user_session_path,style:"color:white", :method=>'get')  %>
 
     <%#= link_to('Signup', new_user_registration_path, :method=>'get')  %>
 

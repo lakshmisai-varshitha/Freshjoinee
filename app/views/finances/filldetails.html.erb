@@ -1,34 +1,41 @@
-<h1>insurance and pf</h1>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<%= form_tag("/finances/insuranceupdate", method: "get") do %>
-  <h2>pf details</h2>
-
-  <%= label_tag(:aadhar, "aadhar:") %>
-  <%= text_field_tag(:aadhar) %><br/>
-
-  <%= label_tag(:pan, "pan:") %>
-  <%= text_field_tag(:pan) %><br/>
-
-  <%= label_tag(:bank_name, "bank_name:") %>
-  <%= text_field_tag(:bank_name) %><br/>
-
-
-  <%= label_tag(:acc_number, "acc_number:") %>
-  <%= text_field_tag(:acc_number) %><br/>
-
-  <%= label_tag(:ifsc, "ifsc code:") %>
-  <%= text_field_tag(:ifsc) %><br/>
-  <%= submit_tag("Submit") %>
+<div class="signup-form">
+  <%= form_tag("/finances/insuranceupdate", method: "get") do %>
+    <h1>Fill Insurance and PF Details</h1>
+    <div class="form-group">
+      <%= label_tag(:aadhar, "aadhar:") %>
+      <%= text_field_tag(:aadhar) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:pan, "pan:") %>
+      <%= text_field_tag(:pan) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:bank_name, "bank_name:") %>
+      <%= text_field_tag(:bank_name) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:acc_number, "acc_number:") %>
+      <%= text_field_tag(:acc_number) %><br/>
+    </div>
+    <div class="form-group">
+      <%= label_tag(:ifsc, "ifsc code:") %>
+      <%= text_field_tag(:ifsc) %><br/>
+    </div>
+    <div class="form-group">
+      <%= submit_tag("Submit") %>
+    </div>
 <% end %>
 
 
 
-<%=link_to "back",projects_third_path %>
-
-
-
-
-
-
-
+<%=link_to "back",projects_add_info_links_path %>
+</div>

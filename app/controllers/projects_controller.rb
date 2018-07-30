@@ -2,11 +2,11 @@ class ProjectsController < ApplicationController
 
 
 def for_saving
-  puts 'asd'
+
   records = Permission.where("company_name = ?", current_user.company_name).all
   eid = records.count+1
   @permission=Permission.new(company_name:current_user.company_name,
-                             department:params[:department],personal_details:params[:personal_details],finance_details:params[:finance_details], education_details:params[:education_details], employment_details:params[:employment_details], empid:eid)
+                             department:params[:department],personal_details:params[:personal_details],finance_details:params[:finance_details], education_details:params[:education_details], employment_details:params[:employment_details], empid:eid, user_id:eid)
 
   @permission.save
 
@@ -18,8 +18,8 @@ def for_saving
   #if @user.save then flash[:success] ="user saved" else flash[:warning]="not registered" end
 
 end
-  def second
-
+  def adduser
+    redirect_to '/' if current_user.login_type=='guest'
     #@user=User.new(name:params[:name])
 
   end
@@ -47,7 +47,7 @@ end
         records = Permission.where("company_name = ?", current_user.company_name).all
         eid = records.count+1
         @permission=Permission.new(company_name:current_user.company_name,
-                                   department:"admin",personal_details:true,finance_details:true, education_details:true, employment_details:true, empid:eid)
+                                   department:"admin",personal_details:true,finance_details:true, education_details:true, employment_details:true, empid:eid, user_id: eid)
 
         @permission.save
         current_user.empid=eid
@@ -67,7 +67,9 @@ end
 
   end
 
+  def add_info_links
 
+  end
   def insurance
 
   end
